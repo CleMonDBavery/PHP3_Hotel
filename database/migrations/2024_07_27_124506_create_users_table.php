@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration {
     /**
@@ -11,22 +11,22 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
+            $table->string('fullname');
+            $table->string('email');
+            $table->string('password');
+            $table->integer('phone');
 
-            $table->integer('price');
 
-            $table->text('description');
+            $table->string('role')->default(0);
+            $table->string('is_public')->default(0);
 
-            // $table->bigInteger('category_id');
 
-            // $table->foreignIdFor(Category::class);
-
-            $table->foreignId('category_id')
+            $table->foreignId('image_id')
                 ->nullable()
-                ->constrained()
+                ->constrained('images')
                 ->onDelete('set null');
 
 
@@ -39,6 +39,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('users');
     }
 };

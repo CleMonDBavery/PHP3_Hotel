@@ -5,8 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AdminCategory extends Category
+class service extends Model
 {
-    protected $table = "categories";
+    use HasFactory;
+
+
+    protected $fillable = [
+        'name',
+        'price',
+    ];
 }
-//Responsitories

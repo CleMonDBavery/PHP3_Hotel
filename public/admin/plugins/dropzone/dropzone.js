@@ -6688,7 +6688,7 @@ $({ global: true, forced: !USE_NATIVE_URL, sham: !DESCRIPTORS }, {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+    /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -6701,14 +6701,15 @@ $({ global: true, forced: !USE_NATIVE_URL, sham: !DESCRIPTORS }, {
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+        /******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+        /******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+
+    /******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
@@ -6721,7 +6722,7 @@ $({ global: true, forced: !USE_NATIVE_URL, sham: !DESCRIPTORS }, {
 /******/ 			}
 /******/ 		};
 /******/ 	}();
-/******/ 	
+    /******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	!function() {
 /******/ 		__webpack_require__.g = (function() {
@@ -6733,12 +6734,12 @@ $({ global: true, forced: !USE_NATIVE_URL, sham: !DESCRIPTORS }, {
 /******/ 			}
 /******/ 		})();
 /******/ 	}();
-/******/ 	
+    /******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	!function() {
 /******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
 /******/ 	}();
-/******/ 	
+    /******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	!function() {
 /******/ 		// define __esModule on exports
@@ -6749,7 +6750,7 @@ $({ global: true, forced: !USE_NATIVE_URL, sham: !DESCRIPTORS }, {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	}();
-/******/ 	
+    /******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -7034,8 +7035,8 @@ var defaultOptions = {
   timeout: null,
 
   /**
-   * How many file uploads to process in parallel (See the
-   * Enqueuing file uploads documentation section for more info)
+   * How many file images to process in parallel (See the
+   * Enqueuing file images documentation section for more info)
    */
   parallelUploads: 2,
 
@@ -7218,7 +7219,7 @@ var defaultOptions = {
    * files (or if you want want all files sent at once).
    * If you're ready to send the file simply call `myDropzone.processQueue()`.
    *
-   * See the [enqueuing file uploads](#enqueuing-file-uploads) documentation
+   * See the [enqueuing file images](#enqueuing-file-images) documentation
    * section for more information.
    */
   autoProcessQueue: true,
@@ -7296,7 +7297,7 @@ var defaultOptions = {
   /**
    * The text that replaces the default message text it the browser is not supported.
    */
-  dictFallbackMessage: "Your browser does not support drag'n'drop file uploads.",
+  dictFallbackMessage: "Your browser does not support drag'n'drop file images.",
 
   /**
    * The text that will be added before the fallback form.
@@ -7376,8 +7377,8 @@ var defaultOptions = {
    * that gets invoked with the `files`, `xhr` and, if it's a chunked upload, `chunk` arguments. In case
    * of a function, this needs to return a map.
    *
-   * The default implementation does nothing for normal uploads, but adds relevant information for
-   * chunked uploads.
+   * The default implementation does nothing for normal images, but adds relevant information for
+   * chunked images.
    *
    * This is the same as adding hidden input fields in the form element.
    */
@@ -9274,7 +9275,7 @@ var Dropzone = /*#__PURE__*/function (_Emitter) {
           return file.upload.chunks[i];
         }
       }
-    } // This function actually uploads the file(s) to the server.
+    } // This function actually images the file(s) to the server.
     // If dataBlocks contains the actual data to upload (meaning, that this could either be transformed
     // files, or individual chunks for chunked upload).
 
@@ -9482,7 +9483,7 @@ var Dropzone = /*#__PURE__*/function (_Emitter) {
     key: "_updateFilesUploadProgress",
     value: function _updateFilesUploadProgress(files, xhr, e) {
       if (!files[0].upload.chunked) {
-        // Handle file uploads without chunking
+          // Handle file images without chunking
         var _iterator17 = dropzone_createForOfIteratorHelper(files, true),
             _step17;
 
@@ -9515,7 +9516,7 @@ var Dropzone = /*#__PURE__*/function (_Emitter) {
           _iterator17.f();
         }
       } else {
-        // Handle chunked file uploads
+          // Handle chunked file images
         // Chunked upload is not compatible with uploading multiple files in one
         // request, so we know there's only one file.
         var _file2 = files[0]; // Since this is a chunked upload, we need to update the appropriate chunk

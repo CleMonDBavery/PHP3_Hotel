@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\RoomtypeController;
 use Illuminate\Support\Facades\Route;
-
 // Route::get('/', [AdminCategoryController::class, 'index']);
 // Route::get('/san-pham', [AdminCategoryController::class, 'index']);
 
@@ -69,9 +68,9 @@ Route::prefix('admin')->group(function () {
         return view('admin.insert_user');
     })->name('insert_user');
 
-    Route::get('/hotel', function () {
-        return view('admin.hotel');
-    })->name('hotel');
+    Route::get('/hotel', [RoomtypeController::class, 'read']
+
+    )->name('hotel');
 
     Route::get('/insert_hotel', function () {
         return view('admin.insert_hotel');
