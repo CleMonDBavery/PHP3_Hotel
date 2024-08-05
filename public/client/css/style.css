@@ -219,6 +219,49 @@ button {
 /**-- heading section --**/
 
 
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #28a745;
+}
+.price-info {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.info {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.checkout-form {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+.form-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #C82333;
+}
+.form-group label {
+    font-weight: bold;
+}
+.form-group i {
+    margin-right: 10px;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
 /*---------------------------- preloader area ----------------------------*/
 
 .loader_bg {

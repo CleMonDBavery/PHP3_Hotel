@@ -37,6 +37,13 @@ Route::get('account', function () {
     return view('client.account');
 })->name('account');
 
+Route::get('room_detail', function () {
+    return view('client.room_detail');
+})->name('room_detail');
+
+Route::get('checkout', function () {
+    return view('client.checkout');
+})->name('checkout');
 
 Route::prefix('admin')->group(function () {
     Route::get('/login', function () {
