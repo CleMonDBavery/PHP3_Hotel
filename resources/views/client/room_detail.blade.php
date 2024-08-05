@@ -66,7 +66,7 @@
                                 <div class="card">
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Giá/phòng/đêm</h5>
-                                        <p class="price">$100</p>
+                                        <p class="price">1.000.000đ</p>
                                         <p class="price-info">Giá đã bao gồm thuế</p>
                                         <a href="{{ route('checkout') }}" class="btn btn-danger btn-block">Đặt ngay</a>
                                     </div>
@@ -95,9 +95,9 @@
                     <div class="bg-light p-2">
                         <div class="d-flex flex-row align-items-start"><textarea
                                 class="form-control ml-1 shadow-none textarea"></textarea></div>
-                        <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none"
+                        <div class="mt-2 text-right"><button class="btn btn-danger btn-sm shadow-none"
                                 type="button">Gửi</button><button
-                                class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Hủy</button>
+                                class="btn btn-outline-danger btn-sm ml-1 shadow-none" type="button">Hủy</button>
                         </div>
                     </div>
                 </div>
