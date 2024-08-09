@@ -11,18 +11,6 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
-    protected function authenticated(Request $request, $user)
-    {
-        // Chuyển hướng người dùng dựa trên vai trò
-        if ($user->role == '0') {
-            return redirect()->route('home');
-        } elseif ($user->role == '1') {
-            return redirect()->route('dashboard');
-        }
-
-        return redirect()->route('home'); // Hoặc trang mặc định
-    }
-
     /**
      * Display the login view.
      */
@@ -36,11 +24,24 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        // Xác thực người dùng
         $request->authenticate();
 
+        // Tạo lại session để bảo vệ khỏi các cuộc tấn công session fixation
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Điều hướng người dùng dựa trên vai trò của họ
+        $user = Auth::user();
+
+
+        if ($user->role == '0') {
+            return redirect()->route('home'); // Route chính xác cho trang client
+        } elseif ($user->role == '1') {
+            return redirect()->route('dashboard'); // Route chính xác cho trang admin
+        }
+
+        // Điều hướng đến trang mặc định nếu vai trò không khớp
+        return redirect()->route('home');
     }
 
     /**
@@ -48,12 +49,16 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        // Đăng xuất người dùng
         Auth::guard('web')->logout();
 
+        // Xóa session
         $request->session()->invalidate();
 
+        // Tạo lại token session
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        // Điều hướng về trang chính
+        return redirect('/login');
     }
 }

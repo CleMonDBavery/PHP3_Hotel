@@ -78,6 +78,16 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a href="{{ route('logoutuser') }}"
+                       class="nav-link">
+                        <i class="nav-icon fa-solid fa-bell"></i>
+                        <p>
+                            Đăng xuất
+                        </p>
+                    </a>
+
+                </li>
             </ul>
         </nav>
     </div>

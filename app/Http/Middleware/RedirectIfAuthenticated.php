@@ -16,7 +16,7 @@ class RedirectIfAuthenticated
     {
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect('/'); // Hoặc route khác nếu đã đăng nhập
+                return redirect('/login'); 
             }
         }
 

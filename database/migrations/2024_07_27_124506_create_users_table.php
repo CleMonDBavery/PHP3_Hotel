@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('email');
             $table->string('password');
             $table->integer('phone')->nullable();
+            $table->string('google_id')->nullable();
 
 
             $table->string('role')->default(0);

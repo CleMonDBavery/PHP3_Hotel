@@ -8,7 +8,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.html"><img src="{{asset('client/images/logo.png')}}" alt="#"/></a>
+                                <a href="index.html"><img src="{{ asset('client/images/logo.png') }}" alt="#"/></a>
                             </div>
                         </div>
                     </div>
@@ -31,17 +31,53 @@
                                 <li class="nav-item {{ request()->routeIs('room') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('room') }}">Phòng</a>
                                 </li>
-                                {{--                                <li class="nav-item {{ request()->routeIs('gallery') ? 'active' : '' }}">--}}
-                                {{--                                    <a class="nav-link" href="{{ route('gallery') }}">Gallery</a>--}}
-                                {{--                                </li>--}}
+                                {{--                                <li class="nav-item {{ request()->routeIs('gallery') ? 'active' : '' }}"> --}}
+                                {{--                                    <a class="nav-link" href="{{ route('gallery') }}">Gallery</a> --}}
+                                {{--                                </li> --}}
                                 <li class="nav-item {{ request()->routeIs('blog') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('blog') }}">Bài viết</a>
                                 </li>
                                 <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('contact') }}">Liên hệ</a>
                                 </li>
-                                <li class="nav-item {{ request()->routeIs('account') ? 'active' : '' }}">
+                                {{-- <li class="nav-item {{ request()->routeIs('account') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('account') }}">Tài khoản</a>
+                                </li> --}}
+                                <li class="nav-item">
+                                    <!-- Avatar Dropdown -->
+                                    <div class="dropdown">
+                                        <!-- Trigger -->
+                                        <button class="btn btn-secondary dropdown-toggle d-flex align-items-center"
+                                                type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                            <!-- Avatar -->
+                                            <img
+                                                src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
+                                                class="rounded-circle me-2" style="width: 20px; height: 20px;">
+                                            <!-- User name -->
+                                            <span>{{ Auth::user()->name }}</span>
+                                        </button>
+
+                                        <!-- Dropdown Menu -->
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <!-- Profile -->
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                                                    {{ __('Thông tin cá nhân') }}
+                                                </a>
+                                            </li>
+                                            <!-- Logout -->
+                                            <li>
+                                                <form method="POST" action="{{ route('logout') }}" class="m-0">
+                                                    @csrf
+                                                    <button type="submit" class="dropdown-item">
+                                                        {{ __('Đăng xuất') }}
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+
                                 </li>
                             </ul>
 

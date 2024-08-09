@@ -31,9 +31,9 @@
                         <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('contact') }}">Liên hệ</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('account') ? 'active' : '' }}">
+                        {{-- <li class="nav-item {{ request()->routeIs('account') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('account') }}">Tài khoản</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <div class="col-md-4">

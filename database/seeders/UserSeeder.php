@@ -23,8 +23,10 @@ class UserSeeder extends Seeder
                 'phone' => '123456789',
                 'image_id' => 1,
                 'is_public' => 1,
-                'role' => 1,
+                'role' => 0,
                 'booking_id' => 1,
+                'google_id' => null,
+
             ],
             [
                 'name' => 'Jane Smith',
@@ -35,6 +37,8 @@ class UserSeeder extends Seeder
                 'is_public' => 1,
                 'role' => 1,
                 'booking_id' => 2,
+                'google_id' => null,
+
             ],
             [
                 'name' => 'Alice Johnson',
@@ -45,6 +49,7 @@ class UserSeeder extends Seeder
                 'is_public' => 1,
                 'role' => 1,
                 'booking_id' => 3,
+                'google_id' => null,
             ],
         ]);
 
