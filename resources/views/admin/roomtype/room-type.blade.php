@@ -5,11 +5,13 @@
 @section('content')
     <style>
         .text-public {
-            color: green; /* Màu xanh lá cho trạng thái 'Hiện' */
+            color: green;
+            /* Màu xanh lá cho trạng thái 'Hiện' */
         }
 
         .text-private {
-            color: gray; /* Màu xám cho trạng thái 'Ẩn' */
+            color: gray;
+            /* Màu xám cho trạng thái 'Ẩn' */
         }
 
         .d-flex {
@@ -26,7 +28,8 @@
                         <h1>Danh mục phòng</h1>
                     </div>
                     <div class="col-sm-2 float-right">
-                        <a href="{{route('insert_hotel')}}" class="btn btn-block btn-primary border w-20">Thêm mới</a>
+                        <a href="{{ route('room-type.insert') }}" class="btn btn-block btn-primary border w-20">Thêm
+                            mới</a>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -37,6 +40,20 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
+
+
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+
+                                @if (session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
@@ -50,32 +67,45 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($roomtypes as $result)
+                                    @foreach ($roomtypes as $result)
                                         <tr>
                                             <td>
-                                                {{$result->id}}
+                                                {{ $result->id }}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('uploads/' . $result->image->path) }}"
-                                                     alt="{{$result->image->name}}" height="150">
+                                                <img
+                                                    src="{{ asset('images/' . ($result->image ? $result->image->path : 'default.jpg')) }}"
+                                                    alt="{{ $result->image ? $result->image->name : 'Default Image' }}"
+                                                    height="150">
+
 
                                             </td>
                                             <td>
-                                                {{$result->title}}
+                                                {{ $result->title }}
                                             </td>
                                             <td>
                                                 {{ Str::limit($result->description, 25, '...') }}
                                             </td>
                                             <td class="text-center">
-                                                <span class="{{ $result->is_public ? 'text-public' : 'text-private' }}">
-                                                    {{ $result->is_public ? 'Hiện' : 'Ẩn' }}
-                                                </span>
+                                                    <span
+                                                        class="{{ $result->is_public ? 'text-public' : 'text-private' }}">
+                                                        {{ $result->is_public ? 'Hiện' : 'Ẩn' }}
+                                                    </span>
                                             </td>
                                             <td>
                                                 <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="" class="btn btn-primary"><i
+                                                    <a href="{{ route('room-type.edit', $result->id) }}"
+                                                       class="btn btn-primary"><i
                                                             class="fa-solid fa-pen-to-square"></i></a>
-                                                    <a href="" class="btn  btn-danger"><i class="fa-solid fa-trash"></i></a>
+
+                                                    <form action="{{ route('room-type.destroy', $result->id) }}"
+                                                          method="post"
+                                                          onsubmit="return confirm('Bạn có chắc chắn muốn xóa không?');">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger"><i
+                                                                class="fa-solid fa-trash"></i></button>
+                                                    </form>
                                                 </div>
 
                                             </td>

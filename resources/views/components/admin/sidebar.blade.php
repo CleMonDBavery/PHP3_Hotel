@@ -22,16 +22,15 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item ">
-                  <a href="{{ route('hotel') }}"
-                      class="nav-link {{ request()->routeIs('hotel') ? 'active' : '' }}">
-                      <i class="nav-icon fa-solid fa-hotel"></i>
-                      <p>
-                          khách sạn
-                      </p>
-                  </a>
-              </li>
-              </li>
+                {{-- <li class="nav-item ">
+                    <a href="{{ route('hotel') }}" class="nav-link {{ request()->routeIs('hotel') ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-hotel"></i>
+                        <p>
+                            Danh mục phòng
+                        </p>
+                    </a>
+                </li> --}}
+                </li>
                 {{-- <li class="nav-item ">
                     <a href="{{ route('reservation ') }}"
                         class="nav-link {{ request()->routeIs('reservation ') ? 'active' : '' }}">
@@ -42,14 +41,15 @@
                         </p>
                     </a>
                 </li> --}}
-                <li class="nav-item ">
-                    <a href="{{ route('room_management') }}" class="nav-link {{ request()->routeIs('room') || request()->routeIs('diagram') ? 'active' : '' }}">
+                {{-- <li class="nav-item ">
+                    <a href="{{ route('room_management') }}"
+                        class="nav-link {{ request()->routeIs('room') || request()->routeIs('diagram') ? 'active' : '' }}">
                         <i class="nav-icon fa-solid fa-door-open"></i>
                         <p>
                             Quản lí phòng
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 {{-- <li class="nav-item ">
                     <a href="{{ route('payment') }}"
                         class="nav-link {{ request()->routeIs('payment') ? 'active' : '' }}">

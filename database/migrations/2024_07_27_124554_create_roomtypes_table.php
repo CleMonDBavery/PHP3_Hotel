@@ -17,12 +17,13 @@ return new class extends Migration {
             $table->text('description');
             $table->integer('is_public')->default(0);
             $table->double('price_per_night');
-            $table->integer('room_quanlity');
+            $table->integer('room_quality');
 
             $table->foreignId('image_id')
                 ->nullable()
                 ->constrained('images')
                 ->onDelete('set null');
+
 
             $table->foreignId('comment_id')
                 ->nullable()
