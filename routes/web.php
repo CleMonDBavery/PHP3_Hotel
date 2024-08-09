@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\RoomtypeController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ConvenientController;
+use App\Http\Controllers\Client\RoomController;
+use App\Http\Controllers\Client\RoomdetailController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 // Route::get('/', [AdminCategoryController::class, 'index']);
 // Route::get('/san-pham', [AdminCategoryController::class, 'index']);
 
@@ -18,9 +23,9 @@ Route::get('about', function () {
     return view('client.about');
 })->name('about');
 
-Route::get('room', function () {
-    return view('client.room');
-})->name('room');
+
+
+
 
 Route::get('gallery', function () {
     return view('client.gallery');
@@ -37,11 +42,10 @@ Route::get('contact', function () {
 Route::get('account', function () {
     return view('client.account');
 })->name('account');
-
-Route::get('room_detail', function () {
-    return view('client.room_detail');
-})->name('room_detail');
-
+Route::prefix('/')->group(function () {
+    Route::get('room', [RoomController::class, 'getRooms'])->name('room');
+    Route::get('room_detail/{id}', [RoomController::class, 'getRoomDetail'])->name('room_detail');
+});
 Route::get('checkout', function () {
     return view('client.checkout');
 })->name('checkout');
@@ -113,21 +117,31 @@ Route::prefix('admin')->group(function () {
 
 
     Route::prefix('services')->group(function () {
-        Route::get('/service', function () {
-            return view('admin.service');
-        })->name('service');
+        Route::get('/dashboard', [ServiceController::class, 'read'])->name('service.dashboard');
+        Route::get('/insert_service', [ServiceController::class, 'create'])->name('service.insert');
+        Route::get('edit_service/{id}', [ServiceController::class, 'edit'])->name('service.edit');
 
-        Route::get('/insert_service', function () {
-            return view('admin.insert_service');
-        })->name('insert_service');
+        Route::post('/insert_service', [ServiceController::class, 'store'])->name('service.store');
+        Route::delete('destroy_service/{id}', [ServiceController::class, 'destroy'])->name('service.destroy');
+        Route::patch('update_service/{id}', [ServiceController::class, 'update'])->name('service.update');
     });
 
-    Route::prefix('rooms')->group(function () {
+    Route::prefix('convenients')->group(function () {
+        Route::get('/dashboard', [ConvenientController::class, 'read'])->name('convenient.dashboard');
+        Route::get('/insert_convenient', [ConvenientController::class, 'create'])->name('convenient.insert');
+        Route::get('edit_convenient/{id}', [ConvenientController::class, 'edit'])->name('convenient.edit');
 
-        Route::get('room', function () {
-            return view('client.room');
-        })->name('room');
+        Route::post('/insert_convenient', [ConvenientController::class, 'store'])->name('convenient.store');
+        Route::delete('destroy_convenient/{id}', [ConvenientController::class, 'destroy'])->name('convenient.destroy');
+        Route::patch('update_convenient/{id}', [ConvenientController::class, 'update'])->name('convenient.update');
     });
+
+    // Route::prefix('rooms')->group(function () {
+
+    //     Route::get('room', function () {
+    //         return view('client.room');
+    //     })->name('room');
+    // });
 
     Route::prefix('room-type')->group(function () {
 

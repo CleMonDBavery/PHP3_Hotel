@@ -22,14 +22,13 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item ">
-                    <a href="{{ route('hotel') }}" class="nav-link {{ request()->routeIs('hotel') ? 'active' : '' }}">
+                <li class="nav-item ">
+                    <a href="{{ route('room-type.dashboard') }}" class="nav-link {{ request()->routeIs('room-type.dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fa-solid fa-hotel"></i>
                         <p>
                             Danh mục phòng
                         </p>
                     </a>
-                </li> --}}
                 </li>
                 {{-- <li class="nav-item ">
                     <a href="{{ route('reservation ') }}"
@@ -70,11 +69,21 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a href="{{ route('service') }}"
-                       class="nav-link {{ request()->routeIs('service') ? 'active' : '' }}">
+                    <a href="{{ route('service.dashboard') }}"
+                       class="nav-link {{ request()->routeIs('service.dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fa-solid fa-bell"></i>
                         <p>
                             Dịch vụ
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a href="{{ route('convenient.dashboard') }}"
+                       class="nav-link {{ request()->routeIs('convenient.dashboard') ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-bell"></i>
+                        <p>
+                            Tiện ích
                         </p>
                     </a>
                 </li>

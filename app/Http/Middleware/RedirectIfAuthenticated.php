@@ -12,16 +12,16 @@ class RedirectIfAuthenticated
      *
      * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
      */
-    public function handle($request, Closure $next, ...$guards)
-    {
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect('/'); // Hoặc route khác nếu đã đăng nhập
-            }
-        }
+    // public function handle($request, Closure $next, ...$guards)
+    // {
+    //     foreach ($guards as $guard) {
+    //         if (Auth::guard($guard)->check()) {
+    //             return redirect('/'); // Hoặc route khác nếu đã đăng nhập
+    //         }
+    //     }
 
-        return $next($request);
-    }
+    //     return $next($request);
+    // }
 
 
 }

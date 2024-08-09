@@ -11,6 +11,11 @@ class convenient extends Model
 
     protected $fillable = [
         'name',
-
+        'image_id'
     ];
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class, 'image_id');
+    }
 }

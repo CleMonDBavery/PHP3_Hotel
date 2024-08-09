@@ -19,4 +19,14 @@ class image extends Model
     {
         return $this->hasMany(RoomType::class, 'image_id');
     }
+
+    public function service()
+    {
+        return $this->hasMany(Service::class, 'image_id');
+    }
+
+    public function convenient()
+    {
+        return $this->hasMany(Convenient::class, 'image_id');
+    }
 }

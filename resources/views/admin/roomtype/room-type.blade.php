@@ -58,7 +58,7 @@
                                     <thead>
                                     <tr>
 
-                                        <th>#</th>
+                                        <th>ID</th>
                                         <th>Ảnh</th>
                                         <th>Tên</th>
                                         <th>Giới thiệu</th>

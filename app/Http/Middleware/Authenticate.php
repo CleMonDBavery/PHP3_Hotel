@@ -12,19 +12,19 @@ class Authenticate
      *
      * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
      */
-    public function handle($request, Closure $next, ...$guards)
-    {
-        $this->authenticate($request, $guards);
+    // public function handle($request, Closure $next, ...$guards)
+    // {
+    //     $this->authenticate($request, $guards);
 
-        return $next($request);
-    }
+    //     return $next($request);
+    // }
 
-    protected function authenticate($request, array $guards)
-    {
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->guest()) {
-                abort(403, 'Unauthorized.');
-            }
-        }
-    }
+    // protected function authenticate($request, array $guards)
+    // {
+    //     foreach ($guards as $guard) {
+    //         if (Auth::guard($guard)->guest()) {
+    //             abort(403, 'Unauthorized.');
+    //         }
+    //     }
+    // }
 }
