@@ -11,6 +11,18 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
+    protected function authenticated(Request $request, $user)
+    {
+        // Chuyển hướng người dùng dựa trên vai trò
+        if ($user->role == '0') {
+            return redirect()->route('home');
+        } elseif ($user->role == '1') {
+            return redirect()->route('dashboard');
+        }
+
+        return redirect()->route('home'); // Hoặc trang mặc định
+    }
+
     /**
      * Display the login view.
      */

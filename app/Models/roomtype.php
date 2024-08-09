@@ -14,7 +14,8 @@ class roomtype extends Model
         'description',
         'is_public',
         'price_per_night',
-        'room_quanlity',
+        'room_quality',
+        'image_id',
     ];
 
     public function image()
